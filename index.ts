@@ -45,7 +45,7 @@ async function start(): Promise<void> {
     const userInput = await getUserInput();
 
     console.log('Launching browser...');
-    const browser = await puppeteer.launch({ headless: !userInput.show, defaultViewport: { width: 1200, height: 1000 } });
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'], headless: !userInput.show, defaultViewport: { width: 1200, height: 1000 } });
     const browserCtx = await browser.createIncognitoBrowserContext();
     const page = await browserCtx.newPage();
 
